@@ -9,7 +9,7 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL || 'mongodb+srv://vercel-admin-user:37gL9NDemNr08Ikg@cluster0.albqgvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
