@@ -8,7 +8,7 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL || 'mongodb+srv://vercel-admin-user:37gL9NDemNr08Ikg@cluster0.albqgvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+  const API_URL = import.meta.env.VITE_API_URL || '69.243.107.181/32';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
