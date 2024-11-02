@@ -5,6 +5,7 @@ function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const API_URL = import.meta.env.VITE_API_URL || 'mongodb+srv://vercel-admin-user:37gL9NDemNr08Ikg@cluster0.albqgvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
@@ -18,14 +19,12 @@ function Register() {
       const response = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
         headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
           username: username.trim(), 
           password: password.trim() 
-        }),
-        credentials: 'include'
+        })
       });
 
       const data = await response.json();
@@ -37,6 +36,7 @@ function Register() {
       }
     } catch (err) {
       setError('Network error. Please check your connection and try again.');
+      console.error('Registration error:', err);
     } finally {
       setIsLoading(false);
     }
