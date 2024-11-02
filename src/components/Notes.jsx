@@ -9,13 +9,15 @@ function Notes() {
   const { token, logout } = useAuth();
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
   useEffect(() => {
     fetchNotes();
   }, []);
 
   const fetchNotes = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/notes', {
+      const response = await fetch(`${API_URL}/api/notes`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -32,7 +34,7 @@ function Notes() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/notes', {
+      const response = await fetch(`${API_URL}/api/notes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +54,7 @@ function Notes() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      const response = await fetch(`${API_URL}/api/notes/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
