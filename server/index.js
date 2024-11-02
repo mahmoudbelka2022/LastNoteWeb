@@ -14,22 +14,14 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Updated CORS configuration
-// app.use(cors({
-//   origin: process.env.NODE_ENV === 'production' 
-//     ? process.env.FRONTEND_URL 
-//     : 'mongodb+srv://vercel-admin-user:37gL9NDemNr08Ikg@cluster0.albqgvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-//   credentials: true
-// }));
-
-// Define allowed origins
-const allowedOrigins = ['69.243.107.181/32'];
-
+Updated CORS configuration
 app.use(cors({
-    origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify methods if needed
-    credentials: true, // Enable cookies for cross-origin requests
+  origin: process.env.NODE_ENV === 'production' 
+    ? process.env.FRONTEND_URL 
+    : 'mongodb+srv://vercel-admin-user:37gL9NDemNr08Ikg@cluster0.albqgvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+  credentials: true
 }));
+
 
 app.use(express.json());
 
